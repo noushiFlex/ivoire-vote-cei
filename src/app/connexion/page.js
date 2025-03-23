@@ -127,7 +127,7 @@ export default function LoginPage() {
                         onChange={handleChange}
                         required
                         placeholder="C0000000000"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black focus:border-transparent"
                       />
                     </div>
                     <div>
@@ -139,7 +139,7 @@ export default function LoginPage() {
                         value={formData.birthdate}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black focus:border-transparent"
                       />
                     </div>
                     <div>
@@ -152,7 +152,7 @@ export default function LoginPage() {
                         onChange={handleChange}
                         required
                         placeholder="+225 XX XX XX XX XX"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black focus:border-transparent"
                       />
                     </div>
                   </div>
@@ -198,7 +198,7 @@ export default function LoginPage() {
                         onChange={handleChange}
                         required
                         placeholder="votre@email.com"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black focus:border-transparent"
                       />
                     </div>
                     <div>
@@ -210,7 +210,7 @@ export default function LoginPage() {
                         value={formData.password}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black focus:border-transparent"
                       />
                       <p className="text-right mt-1">
                         <Link href="/mot-de-passe-oublie" className="text-sm text-blue-800 hover:text-blue-600 transition-colors">
@@ -293,7 +293,7 @@ export default function LoginPage() {
                       required
                       maxLength="6"
                       placeholder="Entrez le code à 6 chiffres"
-                      className="w-full px-4 py-3 text-center text-xl tracking-widest border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 text-center text-xl tracking-widest border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black focus:border-transparent"
                     />
                     
                     {error && (

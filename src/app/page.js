@@ -10,7 +10,7 @@ export default function Home() {
     {
       title: "Élections Présidentielles 2025",
       description: "Participez aux élections présidentielles. Votre voix compte!",
-      imageUrl: "/images/election-banner.jpg",
+      imageUrl: "https://www.cei.ci/wp-content/uploads/2020/06/343A4492.jpg",
     },
     {
       title: "Vote Électronique Sécurisé",
