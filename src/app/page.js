@@ -1,103 +1,287 @@
-import Image from "next/image";
+"use client";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [activeSlide, setActiveSlide] = useState(0);
+  
+  const slides = [
+    {
+      title: "Élections Présidentielles 2025",
+      description: "Participez aux élections présidentielles. Votre voix compte!",
+      imageUrl: "/images/election-banner.jpg",
+    },
+    {
+      title: "Vote Électronique Sécurisé",
+      description: "Notre plateforme utilise les technologies les plus avancées pour garantir l'intégrité de votre vote.",
+      imageUrl: "/images/secure-voting.jpg",
+    },
+    {
+      title: "Résultats en Temps Réel",
+      description: "Suivez les résultats des élections en temps réel sur notre plateforme.",
+      imageUrl: "/images/results.jpg",
+    }
+  ];
+  
+  // Services proposés
+  const services = [
+    {
+      title: "Inscription en ligne",
+      description: "Inscrivez-vous sur les listes électorales facilement depuis votre domicile",
+      icon: "📝",
+      link: "/inscription"
+    },
+    {
+      title: "Vote électronique",
+      description: "Votez en toute sécurité via notre plateforme numérique",
+      icon: "🗳️",
+      link: "/vote"
+    },
+    {
+      title: "Vérification d'identité",
+      description: "Vérifiez votre éligibilité et votre bureau de vote",
+      icon: "🔍",
+      link: "/verification"
+    },
+    {
+      title: "Résultats électoraux",
+      description: "Consultez les résultats des élections en temps réel",
+      icon: "📊",
+      link: "/resultats"
+    },
+  ];
+  
+  // Actualités
+  const news = [
+    {
+      title: "Début des inscriptions pour les élections présidentielles 2025",
+      date: "22 Mars 2025",
+      excerpt: "Les inscriptions pour les élections présidentielles commencent aujourd'hui. Tous les citoyens sont invités à s'inscrire...",
+      imageUrl: "/images/news1.jpg",
+      link: "/actualites/1"
+    },
+    {
+      title: "Mise à jour de la plateforme de vote électronique",
+      date: "15 Mars 2025",
+      excerpt: "Notre plateforme de vote électronique a été mise à jour avec de nouvelles fonctionnalités de sécurité...",
+      imageUrl: "/images/news2.jpg",
+      link: "/actualites/2"
+    },
+    {
+      title: "Formation des agents électoraux",
+      date: "10 Mars 2025",
+      excerpt: "Une session de formation pour les agents électoraux a été organisée pour assurer le bon déroulement des élections...",
+      imageUrl: "/images/news3.jpg",
+      link: "/actualites/3"
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  // Gestion du slider
+  const nextSlide = () => {
+    setActiveSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setActiveSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  // Changement automatique des slides
+  React.useEffect(() => {
+    const interval = setInterval(nextSlide, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <main className="min-h-screen">
+      {/* Header Banner */}
+      <div className="relative h-[500px] w-full overflow-hidden">
+        {slides.map((slide, index) => (
+          <div 
+            key={index}
+            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${
+              index === activeSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            }`}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            <div className="absolute inset-0 bg-black/50 z-10"></div>
+            <div className="relative h-full w-full">
+              {/* Placeholder pour l'image (à remplacer par de vraies images) */}
+              <div className="absolute inset-0 bg-blue-800 opacity-80"></div>
+              
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-20 px-4">
+                <h1 className="text-4xl md:text-6xl font-bold text-center mb-4">{slide.title}</h1>
+                <p className="text-xl md:text-2xl text-center max-w-3xl">{slide.description}</p>
+                <div className="mt-8">
+                  <Link href="/inscription" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-semibold text-lg transition-all">
+                    S'inscrire maintenant
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+        
+        {/* Contrôles du slider */}
+        <button 
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/30 hover:bg-white/50 p-2 rounded-full"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button 
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/30 hover:bg-white/50 p-2 rounded-full"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+        
+        {/* Indicateurs */}
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 flex space-x-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveSlide(index)}
+              className={`w-3 h-3 rounded-full ${
+                index === activeSlide ? 'bg-white' : 'bg-white/50'
+              }`}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+
+      {/* Services */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Nos Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => (
+              <Link href={service.link} key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                <div className="text-4xl mb-4">{service.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-800">{service.title}</h3>
+                <p className="text-gray-600">{service.description}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Compteur/Statistiques */}
+      <section className="py-16 bg-blue-800 text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl font-bold mb-2">8.5M+</div>
+              <p className="text-lg">Électeurs inscrits</p>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">10k+</div>
+              <p className="text-lg">Bureaux de vote</p>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">200+</div>
+              <p className="text-lg">Communes couvertes</p>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">99.9%</div>
+              <p className="text-lg">Taux de sécurité</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Actualités */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Dernières Actualités</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {news.map((item, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                <div className="h-48 bg-gray-300 relative">
+                  {/* Placeholder pour l'image (à remplacer par de vraies images) */}
+                  <div className="absolute inset-0 bg-gray-400"></div>
+                </div>
+                <div className="p-6">
+                  <p className="text-sm text-gray-500 mb-2">{item.date}</p>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800">{item.title}</h3>
+                  <p className="text-gray-600 mb-4">{item.excerpt}</p>
+                  <Link href={item.link} className="text-orange-500 hover:text-orange-600 font-medium">
+                    Lire la suite →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link href="/actualites" className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md font-semibold transition-all">
+              Voir toutes les actualités
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Processus électoral */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Processus Électoral</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center mb-12">
+              <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8">
+                <div className="bg-blue-800 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 mx-auto md:mx-0">1</div>
+                <h3 className="text-xl font-semibold mb-2 text-center md:text-left">Inscription sur les listes électorales</h3>
+                <p className="text-gray-600 text-center md:text-left">Inscrivez-vous sur les listes électorales en ligne ou dans les bureaux d'inscription désignés.</p>
+              </div>
+              <div className="md:w-1/2 bg-gray-200 h-64 rounded-lg"></div>
+            </div>
+            
+            <div className="flex flex-col md:flex-row-reverse items-center mb-12">
+              <div className="md:w-1/2 mb-6 md:mb-0 md:pl-8">
+                <div className="bg-blue-800 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 mx-auto md:mx-0">2</div>
+                <h3 className="text-xl font-semibold mb-2 text-center md:text-left">Vérification des informations</h3>
+                <p className="text-gray-600 text-center md:text-left">Confirmez vos informations personnelles et votre bureau de vote.</p>
+              </div>
+              <div className="md:w-1/2 bg-gray-200 h-64 rounded-lg"></div>
+            </div>
+            
+            <div className="flex flex-col md:flex-row items-center mb-12">
+              <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8">
+                <div className="bg-blue-800 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 mx-auto md:mx-0">3</div>
+                <h3 className="text-xl font-semibold mb-2 text-center md:text-left">Vote électronique</h3>
+                <p className="text-gray-600 text-center md:text-left">Votez en toute sécurité via notre plateforme numérique le jour de l'élection.</p>
+              </div>
+              <div className="md:w-1/2 bg-gray-200 h-64 rounded-lg"></div>
+            </div>
+            
+            <div className="flex flex-col md:flex-row-reverse items-center">
+              <div className="md:w-1/2 mb-6 md:mb-0 md:pl-8">
+                <div className="bg-blue-800 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 mx-auto md:mx-0">4</div>
+                <h3 className="text-xl font-semibold mb-2 text-center md:text-left">Résultats des élections</h3>
+                <p className="text-gray-600 text-center md:text-left">Consultez les résultats en temps réel sur notre plateforme.</p>
+              </div>
+              <div className="md:w-1/2 bg-gray-200 h-64 rounded-lg"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-16 bg-blue-800 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Prêt à participer aux élections ?</h2>
+          <p className="text-xl mb-8 max-w-3xl mx-auto">Inscrivez-vous dès aujourd'hui pour exercer votre droit de vote et contribuer à l'avenir de notre nation.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link href="/inscription" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-semibold text-lg transition-all">
+              S'inscrire
+            </Link>
+            <Link href="/informations" className="bg-white hover:bg-gray-100 text-blue-800 px-8 py-3 rounded-md font-semibold text-lg transition-all">
+              En savoir plus
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
