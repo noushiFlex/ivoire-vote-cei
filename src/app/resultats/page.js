@@ -194,14 +194,14 @@ export default function ResultsPage() {
                                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                                   <div className="flex items-center mb-2 md:mb-0">
                                     <div className={`h-10 w-10 bg-${candidate.color}-200 rounded-full mr-3 flex items-center justify-center`}>
-                                      <span className="font-bold">{candidate.name.charAt(0)}</span>
+                                      <span className="font-bold text-gray-600">{candidate.name.charAt(0)}</span>
                                     </div>
                                     <div>
-                                      <h4 className="font-semibold">{candidate.name}</h4>
-                                      <p className="text-sm text-gray-600">{candidate.party}</p>
+                                      <h4 className="font-semibold text-gray-600">{candidate.name}</h4>
+                                      <p className="text-sm text-black">{candidate.party}</p>
                                     </div>
                                   </div>
-                                  <div className="text-2xl font-bold">{candidate.percentage}%</div>
+                                  <div className="text-2xl font-bold text-gray-600">{candidate.percentage}%</div>
                                 </div>
                                 
                                 <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
