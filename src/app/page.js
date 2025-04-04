@@ -58,22 +58,22 @@ export default function Home() {
       title: "Début des inscriptions pour les élections présidentielles 2025",
       date: "22 Mars 2025",
       excerpt: "Les inscriptions pour les élections présidentielles commencent aujourd'hui. Tous les citoyens sont invités à s'inscrire...",
-      imageUrl: "/images/news1.jpg",
+      imageUrl: "https://www.cei.ci/wp-content/uploads/2025/03/B05I3611.jpg",
       link: "/actualites/1"
     },
     {
       title: "Mise à jour de la plateforme de vote électronique",
       date: "15 Mars 2025",
       excerpt: "Notre plateforme de vote électronique a été mise à jour avec de nouvelles fonctionnalités de sécurité...",
-      imageUrl: "/images/news2.jpg",
-      link: "/actualites/2"
+      imageUrl: "https://www.cei.ci/wp-content/uploads/2020/06/343A4582.jpg",
+      link: ""
     },
     {
       title: "Formation des agents électoraux",
       date: "10 Mars 2025",
       excerpt: "Une session de formation pour les agents électoraux a été organisée pour assurer le bon déroulement des élections...",
-      imageUrl: "/images/news3.jpg",
-      link: "/actualites/3"
+      imageUrl: "https://www.cei.ci/wp-content/uploads/2020/06/343A4688.jpg",
+      link: ""
     },
   ];
 
@@ -202,7 +202,8 @@ export default function Home() {
               <div key={index} className="bg-gray-50 rounded-lg overflow-hidden shadow-md">
                 <div className="h-48 bg-gray-300 relative">
                   {/* Placeholder pour l'image (à remplacer par de vraies images) */}
-                  <div className="absolute inset-0 bg-gray-400"></div>
+                  <img className=" object-cover w-full h-full" src={item.imageUrl}></img>
+
                 </div>
                 <div className="p-6">
                   <p className="text-sm text-gray-500 mb-2">{item.date}</p>
@@ -231,28 +232,33 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center mb-12">
               <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8">
                 <div className="bg-blue-800 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 mx-auto md:mx-0">1</div>
-                <h3 className="text-xl font-semibold mb-2 text-center md:text-left">Inscription sur les listes électorales</h3>
+                <h3 className="text-xl font-semibold mb-2 text-center md:text-left text-black">Inscription sur les listes électorales</h3>
                 <p className="text-gray-600 text-center md:text-left">Inscrivez-vous sur les listes électorales en ligne ou dans les bureaux d'inscription désignés.</p>
               </div>
-              <div className="md:w-1/2 bg-gray-200 h-64 rounded-lg"></div>
+              <div className="md:w-1/2 bg-gray-800 h-64 rounded-lg">
+              <img src='https://img.freepik.com/vecteurs-libre/illustration-du-concept-connexion-ordinateur_114360-7962.jpg' className='w-full h-full object-cover rounded-lg'></img>
+              </div>
             </div>
             
             <div className="flex flex-col md:flex-row-reverse items-center mb-12">
               <div className="md:w-1/2 mb-6 md:mb-0 md:pl-8">
                 <div className="bg-blue-800 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 mx-auto md:mx-0">2</div>
-                <h3 className="text-xl font-semibold mb-2 text-center md:text-left">Vérification des informations</h3>
+                <h3 className="text-xl font-semibold mb-2 text-center md:text-left text-black">Vérification des informations</h3>
                 <p className="text-gray-600 text-center md:text-left">Confirmez vos informations personnelles et votre bureau de vote.</p>
               </div>
-              <div className="md:w-1/2 bg-gray-200 h-64 rounded-lg"></div>
+              <div className="md:w-1/2 bg-gray-200 h-64 rounded-lg">
+              <img src='https://img.freepik.com/vecteurs-libre/illustration-concept-abstrait-carte-identite-intelligente_335657-1814.jpg?w=360' className='w-full h-full object-cover rounded-lg'></img></div>
             </div>
             
             <div className="flex flex-col md:flex-row items-center mb-12">
               <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8">
                 <div className="bg-blue-800 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mb-4 mx-auto md:mx-0">3</div>
-                <h3 className="text-xl font-semibold mb-2 text-center md:text-left">Vote électronique</h3>
+                <h3 className="text-xl font-semibold mb-2 text-center md:text-left text-black">Vote électronique</h3>
                 <p className="text-gray-600 text-center md:text-left">Votez en toute sécurité via notre plateforme numérique le jour de l'élection.</p>
               </div>
-              <div className="md:w-1/2 bg-gray-200 h-64 rounded-lg"></div>
+              <div className="md:w-1/2 bg-gray-200 h-64 rounded-lg">
+              <img src='https://www.lunel.com/wp-content/uploads/2022/03/4116831-768x768.jpg' className='w-full h-full object-cover rounded-lg'></img>
+              </div>
             </div>
             
             <div className="flex flex-col md:flex-row-reverse items-center">
@@ -261,7 +267,8 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-2 text-center md:text-left">Résultats des élections</h3>
                 <p className="text-gray-600 text-center md:text-left">Consultez les résultats en temps réel sur notre plateforme.</p>
               </div>
-              <div className="md:w-1/2 bg-gray-200 h-64 rounded-lg"></div>
+              <div className="md:w-1/2 bg-gray-200 h-64 rounded-lg">
+              <img src='https://img.freepik.com/premium-vector/sales-audit-report-review-inspect-analysis-research-data-tax-quality-evaluation-overview-results_212005-735.jpg?semt=ais_hybrid&w=740' className='w-full h-full object-cover rounded-lg'></img></div>
             </div>
           </div>
         </div>
