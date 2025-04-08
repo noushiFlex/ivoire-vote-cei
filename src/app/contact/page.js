@@ -217,7 +217,7 @@ export default function ContactPage() {
                   <div className="bg-gray-200 rounded-lg h-80 mb-4">
                     {/* Emplacement pour une carte interactive Google Maps ou OpenStreetMap */}
                     <div className="h-full w-full flex items-center justify-center">
-                      <p className="text-gray-500">Carte interactive</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.226573277685!2d-3.993531829148264!3d5.38239118066404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc19500285e0ea1%3A0xc62a450d9dbf3f80!2sCEI%20Commission%20%C3%89lectorale%20Ind%C3%A9pendante!5e0!3m2!1sfr!2sci!4v1743765378460!5m2!1sfr!2sci" width="600" height="450" className='object-cover h-full w-full' loading="lazy" ></iframe>
                     </div>
                   </div>
                   <div className="bg-blue-50 p-4 rounded-lg">
