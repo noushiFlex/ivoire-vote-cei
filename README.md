@@ -2,6 +2,13 @@
 
 Ivoire-Vote-CEI est une plateforme de vote en ligne fictive conçue comme un concept inspiré par la Commission Électorale de Côte d'Ivoire (CEI). Elle simule un processus électoral sécurisé et transparent, incluant l'inscription des électeurs, la gestion des candidats et le suivi des résultats en temps réel.
 
+## Essayer la plateforme
+
+Une version de démonstration de la plateforme est disponible en ligne :
+[https://ivoire-vote-cei.vercel.app/](https://ivoire-vote-cei.vercel.app/)
+
+Vous pouvez explorer toutes les fonctionnalités de l'application directement depuis votre navigateur.
+
 ## Fonctionnalités
 
 - **Inscription des Électeurs** : Inscription sécurisée des électeurs avec une identification unique.
@@ -13,7 +20,7 @@ Ivoire-Vote-CEI est une plateforme de vote en ligne fictive conçue comme un con
 
 - **Next.js** : Un framework React pour la création d'applications rendues côté serveur.
 - **JavaScript** : Le principal langage de programmation utilisé dans le projet.
-- **CSS** : Pour le style de l'interface utilisateur.
+- **Tailwind** : Pour le style de l'interface utilisateur.
 
 ## Démarrage
 
