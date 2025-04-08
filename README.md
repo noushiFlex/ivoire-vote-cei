@@ -114,12 +114,8 @@ Les contributions sont ce qui rend la communauté open-source si incroyable pour
 4. Poussez vers la branche (`git push origin feature/FonctionnaliteIncroyable`).
 5. Ouvrez une Pull Request.
 
-## Licence
-
-Distribué sous la licence MIT. Voir le fichier `LICENSE` pour plus d'informations.
 
 ## Contact
 
-Votre Nom - [@votre_twitter](https://twitter.com/votre_twitter) - votre_email@example.com
-
+Yohann - noushiFlex
 Lien du projet : [https://github.com/noushiFlex/ivoire-vote-cei](https://github.com/noushiFlex/ivoire-vote-cei)
