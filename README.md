@@ -79,19 +79,19 @@ Voici quelques captures d'écran de la plateforme Ivoire-Vote-CEI qui illustrent
 ![Page d'accueil](images/demo1.png)
 *La page d'accueil présente les informations essentielles sur les élections à venir et les services de la CEI.*
 
-### Espace électeur
+### Espace d'inscription
 ![Espace électeur](images/demo2.png)
 *L'espace électeur permet aux utilisateurs de consulter leur statut, les élections à venir et leur historique de vote.*
 
-### Processus de vote électronique
+### Espace électeur
 ![Vote électronique](images/demo3.png)
 *Notre système de vote électronique garantit un processus sécurisé et anonyme avec confirmation de réception.*
 
-### Visualisation des résultats
+### Information sur la CEI
 ![Résultats électoraux](images/demo4.png)
 *Les résultats des élections sont présentés de manière claire avec des graphiques et statistiques détaillés.*
 
-### Informations sur la CEI
+### Visualisation des résultats
 ![À propos de la CEI](images/demo5.png)
 *La section À propos présente l'histoire et la mission de la Commission Électorale Indépendante.*
 
